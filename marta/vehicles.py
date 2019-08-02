@@ -6,6 +6,18 @@ class Vehicle():
     def __str__(self):
         return str(self.__dict__)
 
+    def __eq__(self, other):
+        """Consider two objects equal if they have identical attributes"""
+        if type(other) is type(self):
+            return self.__dict__ == other.__dict__
+        return False
+
+    def __getitem__(self, item):
+        """Allow for dictionary like access to object for attributes"""
+        if hasattr(self, item):
+            return getattr(self, item)
+        raise KeyError()
+
 
 class Bus(Vehicle):
     def __init__(self, record):
