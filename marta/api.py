@@ -1,8 +1,9 @@
-import requests
-import requests_cache
 from json import loads
 from os import getenv
 from functools import wraps
+
+import requests
+import requests_cache
 
 from .exceptions import APIKeyError
 from .vehicles import Bus, Train
