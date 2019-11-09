@@ -3,19 +3,19 @@ from os import getenv
 from functools import wraps
 
 import requests
-import requests_cache
+# import requests_cache
 
 from .exceptions import APIKeyError
 from .vehicles import Bus, Train
 
 _API_KEY = getenv('MARTA_API_KEY')
-_CACHE_EXPIRE = int(getenv('MARTA_CACHE_EXPIRE', 30))
+# _CACHE_EXPIRE = int(getenv('MARTA_CACHE_EXPIRE', 30))
 _BASE_URL = 'http://developer.itsmarta.com'
 _TRAIN_PATH = '/RealtimeTrain/RestServiceNextTrain/GetRealtimeArrivals'
 _BUS_PATH = '/BRDRestService/RestBusRealTimeService/GetAllBus'
 _BUS_ROUTE_PATH = '/BRDRestService/RestBusRealTimeService/GetBusByRoute/'
 
-requests_cache.install_cache('marta_api_cache', backend='sqlite', expire_after=_CACHE_EXPIRE)
+# requests_cache.install_cache('marta_api_cache', backend='sqlite', expire_after=_CACHE_EXPIRE)
 
 
 def require_api_key(func):
