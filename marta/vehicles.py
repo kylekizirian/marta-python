@@ -40,9 +40,9 @@ class Train(Vehicle):
     def __init__(self, record):
         self.destination = record.get("DESTINATION")
         self.direction = record.get("DIRECTION")
-        self.last_updated = datetime.strptime(record.get("EVENT_TIME"), "%m/%d/%Y %H:%M:%S %p")
+        self.last_updated = datetime.strptime(record.get("EVENT_TIME"), "%m/%d/%Y %I:%M:%S %p")
         self.line = record.get("LINE")
-        self.next_arrival = datetime.strptime(record.get("NEXT_ARR"), "%H:%M:%S %p").time()
+        self.next_arrival = datetime.strptime(record.get("NEXT_ARR"), "%I:%M:%S %p").time()
         self.station = record.get("STATION")
         self.train_id = record.get("TRAIN_ID")
         self.waiting_seconds = record.get("WAITING_SECONDS")
